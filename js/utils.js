@@ -1,15 +1,19 @@
-import { nextTaskNumber } from "./data.js";
+const UtilsModule = (() => {
+    const { nextTaskNumber } = DataModule;
 
-export function cleanText(text) {
-    return text.trim();
-}
+    function cleanText(text) {
+        return text.trim();
+    }
 
-export function generateTaskId(taskList) {
-    let taskId;
+    function generateTaskId(taskList) {
+        let taskId;
 
-    do {
-        taskId = `task-${nextTaskNumber()}`;
-    } while (taskList.querySelector(`[data-task-id="${taskId}"]`));
+        do {
+            taskId = `task-${nextTaskNumber()}`;
+        } while (taskList.querySelector(`[data-task-id="${taskId}"]`));
 
-    return taskId;
-}
+        return taskId;
+    }
+
+    return { cleanText, generateTaskId };
+})();

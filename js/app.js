@@ -1,6 +1,6 @@
-import { EMPTY_MESSAGE, SAMPLE_TASKS } from "./data.js";
-import { cleanText, generateTaskId } from "./utils.js";
-import {
+const { EMPTY_MESSAGE, SAMPLE_TASKS } = DataModule;
+const { cleanText, generateTaskId } = UtilsModule;
+const {
     elements,
     showMessage,
     createTaskElement,
@@ -9,7 +9,7 @@ import {
     saveTaskEdit,
     removeTask,
     updateTaskCounts
-} from "./display.js";
+} = DisplayModule;
 
 const { taskInput, addTaskBtn, loadSamplesBtn, taskList } = elements;
 
