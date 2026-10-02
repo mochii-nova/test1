@@ -1,121 +1,163 @@
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  padding: 2rem 1rem;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f1f5f9;
-  color: #1e293b;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.app {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 1.5rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1);
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  margin-top: 0;
-  font-size: 1.6rem;
-  text-align: center;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.task-input-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.controls input {
-  flex: 1 1 200px;
-}
-
-input[type="text"] {
-  padding: 0.55rem 0.7rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font-size: 1rem;
+#taskInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
 }
 
 button {
-  padding: 0.5rem 0.9rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  color: #ffffff;
-  background: #2563eb;
-  cursor: pointer;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-button:hover { filter: brightness(1.1); }
+#addTaskBtn {
+    background-color: #2563eb;
+    color: white;
+}
 
-#loadSamplesBtn { background: #64748b; }
-.complete-btn   { background: #16a34a; }
-.edit-btn       { background: #d97706; }
-.remove-btn     { background: #dc2626; }
+#loadSamplesBtn {
+    background-color: #16a34a;
+    color: white;
+}
 
-.message {
-  min-height: 1.4rem;
-  margin: 0.5rem 0;
-  color: #dc2626;
-  font-weight: 600;
+button:hover {
+    opacity: 0.85;
+}
+
+#taskMessage {
+    width: 100%;
+    color: #dc2626;
+    min-height: 20px;
+    margin-top: 5px;
 }
 
 .summary {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 25px 0;
 }
 
-.summary-card {
-  flex: 1;
-  padding: 0.6rem;
-  text-align: center;
-  font-weight: 600;
-  background: #e0e7ff;
-  border-radius: 8px;
+.summary div {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+}
+
+.summary span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.summary strong {
+    font-size: 24px;
 }
 
 #taskList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    list-style: none;
 }
 
 .task-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem;
-  margin-bottom: 0.5rem;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
 }
 
-.task-text,
-.edit-input {
-  flex: 1;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.edit-input {
-  padding: 0.4rem 0.6rem;
-  border: 1px solid #2563eb;
-  border-radius: 6px;
-  font-size: 1rem;
+.task-text {
+    flex: 1;
+    word-break: break-word;
 }
 
 .task-item.completed {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
+    background-color: #e8f5e9;
 }
 
 .task-item.completed .task-text {
-  text-decoration: line-through;
-  color: #64748b;
+    text-decoration: line-through;
+    color: #666;
+}
+
+.complete-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.remove-btn {
+    background-color: #dc2626;
+    color: white;
+}
+
+.edit-input {
+    flex: 1;
+    padding: 9px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+@media (max-width: 600px) {
+
+    .task-item {
+        flex-wrap: wrap;
+    }
+
+    .task-text,
+    .edit-input {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .summary {
+        flex-direction: column;
+    }
 }
